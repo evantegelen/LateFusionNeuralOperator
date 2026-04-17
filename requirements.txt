@@ -1,0 +1,16 @@
+# Core dependencies for training and evaluation
+# Install with: pip install -r requirements.txt
+
+torch
+pytorch-lightning
+numpy
+pandas
+matplotlib
+Pillow
+comet-ml
+python-dotenv
+tqdm
+PyYAML
+
+# Optional CAPE benchmark dependency:
+# install CAPE-ML4Sci separately from its repository and set CAPE_ML4SCI_PATH in .env
