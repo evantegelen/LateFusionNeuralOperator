@@ -13,21 +13,6 @@ This repository contains the code accompanying the paper:
 - `notebooks/`: visualisation, interpretation, and figure generation
 - `outputs/`: saved checkpoints, run configs, and evaluation outputs
 
-## Environment Setup
-
-Use your preferred Python environment manager (conda/venv), then install the required dependencies used by this project.
-
-Create a local `.env` file in the repository root (this file is git-ignored):
-
-```env
-COMET_API_KEY=...
-COMET_WORKSPACE=...
-COMET_PROJECT_NAME=latefusionoperator-experiments
-
-# Optional: only needed when running CAPE-FNO benchmarks
-CAPE_ML4SCI_PATH=C:/path/to/CAPE-ML4Sci
-```
-
 ## How To Train A Model
 
 Training entrypoint: `src/train.py`
