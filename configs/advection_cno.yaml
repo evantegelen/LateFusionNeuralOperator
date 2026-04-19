@@ -1,0 +1,24 @@
+experiment_name: advection_cno
+equation: Advection
+seeds: [123, 234, 345, 456, 567]
+
+shared:
+  training:
+    max_epochs: 100
+    learning_rate: 0.001
+
+experiments:
+  - name: cno_default
+    model:
+      type: cno
+      params: {}
+
+  - name: late_fusion_cno
+    model:
+      type: late_fusion
+      params:
+        num_hidden: 2
+        library_type: simple
+        operator: CNO
+    sweep:
+      model.params.sparsity_weight: [1e-2, 1e-3, 1e-4]

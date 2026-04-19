@@ -1,0 +1,41 @@
+experiment_name: reactiondiffusion2d_benchmark
+equation: ReactionDiffusion_2D
+seeds: [123, 234, 345]
+
+shared:
+  data:
+    batch_size_train: 100
+    batch_size_test: 5
+  model:
+    params:
+      modes: 12
+      width: 32
+      periodic: false
+      padding: 2
+  training:
+    max_epochs: 100
+    learning_rate: 0.001
+
+experiments:
+
+  - name: fno_default
+    model:
+      type: fno
+      params: {}
+
+  - name: cape_fno_embedding_sweep
+    model:
+      type: cape_fno
+      params: {}
+    sweep:
+      model.params.embedding_weight: [1e-4, 1e-6, 1e-8]
+
+  - name: late_fusion_sparsity_sweep
+    model:
+      type: late_fusion
+      params:
+        order_states: 1
+        order_parameters: 1
+        num_hidden: 3
+    sweep:
+      model.params.sparsity_weight: [1e-2, 1e-3, 1e-4]

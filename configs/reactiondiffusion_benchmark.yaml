@@ -1,0 +1,36 @@
+experiment_name: reactiondiffusion1d_benchmark
+equation: ReactionDiffusion_1D
+seeds: [123, 234, 345, 456, 567]
+
+shared:
+  model:
+    params:
+      modes: 16
+      width: 64
+  training:
+    max_epochs: 100
+    learning_rate: 0.001
+
+experiments:
+  - name: fno_default
+    model:
+      type: fno
+      params: {}
+
+  - name: cape_fno_embedding_sweep
+    model:
+      type: cape_fno
+      params: {}
+    sweep:
+      model.params.embedding_weight: [1e-8, 1e-6, 1e-4]
+
+  - name: late_fusion_sparsity_sweep
+    model:
+      type: late_fusion
+      params:
+        num_hidden: 2
+        library_type: polynomial
+        order_states: 2
+        order_parameters: 1
+    sweep:
+      model.params.sparsity_weight: [1e-2, 1e-3, 1e-4]
