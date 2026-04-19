@@ -9,7 +9,7 @@ This repository contains the code accompanying the paper:
 
 - `src/`: training, evaluation, models, and utilities
 - `configs/`: benchmark and ablation configuration files
-- `data/`: raw and processed datasets
+- `data/processed`: processed datasets
 - `notebooks/`: visualisation, interpretation, and figure generation
 - `outputs/`: saved checkpoints, run configs, and evaluation outputs
 
